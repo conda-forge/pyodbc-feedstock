@@ -21,7 +21,7 @@ requirements:
   host:
     - python
     - setuptools
-    - unixodbc 2.3.4  # [unix]
+    - unixodbc  # [unix]
 
   build:
     - {{ compiler('c') }}
@@ -29,7 +29,6 @@ requirements:
 
   run:
     - python
-    - unixodbc 2.3.4  # [unix]
 
 test:
   imports:
