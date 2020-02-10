@@ -1,6 +1,6 @@
 {% set name = "pyodbc" %}
-{% set version = "4.0.28" %}
-{% set sha256 = "510643354c4c687ed96bf7e7cec4d02d6c626ecf3e18696f5a0228dd6d11b769" %}
+{% set version = "4.0.30" %}
+{% set sha256 = "1be68880d64deffa6a57dca776be83d8367d81357642d24c8b2a3151921b7cd5" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,9 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  # no sdict was uploaded to PyPI for the 4.0.30 release, use the GitHub archive.
+  #url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://github.com/mkleehammer/pyodbc/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
     - setup.patch  # [unix]
