@@ -12,6 +12,7 @@ source:
   sha256: {{ sha256 }}
   patches:
     - setup.patch  # [unix]
+    - 0001-Fix-typo-in-extra_link_args.patch
 
 build:
   number: 0
