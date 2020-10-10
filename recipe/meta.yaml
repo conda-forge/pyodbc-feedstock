@@ -15,7 +15,7 @@ source:
     - 0001-Comment-out-fix-for-663.patch
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
