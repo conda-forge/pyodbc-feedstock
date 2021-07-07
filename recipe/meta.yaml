@@ -1,6 +1,6 @@
 {% set name = "pyodbc" %}
-{% set version = "4.0.30" %}
-{% set sha256 = "1be68880d64deffa6a57dca776be83d8367d81357642d24c8b2a3151921b7cd5" %}
+{% set version = "4.0.31" %}
+{% set sha256 = "3ea585444c13fdf7e9d50651deff1be5d37fdb9d46a6c885e798baf0ee0165dc" %}
 
 package:
   name: {{ name|lower }}
@@ -23,17 +23,26 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - git
+    - patch  # [not win]
+    - m2-patch  # [win]
 
   host:
     - python
     - pip
+    - setuptools
     - unixodbc   # [unix]
+    - wheel
   run:
     - python
 
 test:
   imports:
     - pyodbc
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/mkleehammer/pyodbc
