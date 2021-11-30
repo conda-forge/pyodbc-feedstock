@@ -42,7 +42,7 @@ test:
     - pyodbc
   requires:
     - pip
-    - python <3.10
+    - python
   commands:
     - pip check
 
