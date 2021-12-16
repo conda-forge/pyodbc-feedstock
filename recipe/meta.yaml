@@ -16,7 +16,6 @@ source:
     - setup.patch  # [unix]
 
 build:
-  # skip: True  # [py<37]
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
