@@ -16,7 +16,7 @@ source:
     - setup.patch  # [unix]
 
 build:
-  skip: True  # [py<37]
+  # skip: True  # [py<37]
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
@@ -35,7 +35,7 @@ requirements:
     - unixodbc   # [unix]
     - wheel
   run:
-    - python >=3.6
+    - python
 
 test:
   imports:
