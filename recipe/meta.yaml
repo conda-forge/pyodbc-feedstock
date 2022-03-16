@@ -1,6 +1,6 @@
 {% set name = "pyodbc" %}
 {% set version = "4.0.32" %}
-{% set sha256 = "4ed213d0f67d639d03d37de52a613a4e5a0da113e6d0d56e90dca09d7060470c" %}
+{% set sha256 = "9be5f0c3590655e1968488410fe3528bb8023d527e7ccec1f663d64245071a6b" %}
 
 package:
   name: {{ name|lower }}
@@ -8,15 +8,14 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  # no sdict was uploaded to PyPI for the 4.0.30 release, use the GitHub archive.
-  #url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  url: https://github.com/mkleehammer/pyodbc/archive/{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
     - setup.patch  # [unix]
+    - 0001-Comment-out-fix-for-663.patch
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -24,9 +23,8 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - git
-    - patch  # [not win]
+    - patch     # [not win]
     - m2-patch  # [win]
-
   host:
     - python
     - pip
@@ -41,7 +39,6 @@ test:
     - pyodbc
   requires:
     - pip
-    - python
   commands:
     - pip check
 
@@ -50,12 +47,12 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE.txt
-  summary: 'DB API Module for ODBC'
+  summary: DB API Module for ODBC
   description: |
     pyodbc is a Python DB API 2 module for ODBC. This project provides an
     up-to-date, convenient interface to ODBC using native data types like
     datetime and decimal.
-  doc_url: http://mkleehammer.github.io/pyodbc/
+  doc_url: https://mkleehammer.github.io/pyodbc/
   doc_source_url: https://github.com/mkleehammer/pyodbc/blob/master/docs/index.md
   dev_url: https://github.com/mkleehammer/pyodbc
 
