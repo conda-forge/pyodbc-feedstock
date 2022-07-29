@@ -1,6 +1,6 @@
 {% set name = "pyodbc" %}
-{% set version = "4.0.32" %}
-{% set sha256 = "9be5f0c3590655e1968488410fe3528bb8023d527e7ccec1f663d64245071a6b" %}
+{% set version = "4.0.34" %}
+{% set sha256 = "7ea7869532b96b8d529b1f08ea85765f94df7e4a58e968b2f8d455346a03e45c" %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +15,7 @@ source:
     - 0001-Comment-out-fix-for-663.patch
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -44,7 +44,7 @@ test:
 
 about:
   home: https://github.com/mkleehammer/pyodbc
-  license: MIT
+  license: MIT-0
   license_family: MIT
   license_file: LICENSE.txt
   summary: DB API Module for ODBC
