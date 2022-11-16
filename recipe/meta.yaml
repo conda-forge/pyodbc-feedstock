@@ -1,6 +1,6 @@
 {% set name = "pyodbc" %}
-{% set version = "4.0.34" %}
-{% set sha256 = "7ea7869532b96b8d529b1f08ea85765f94df7e4a58e968b2f8d455346a03e45c" %}
+{% set version = "4.0.35" %}
+{% set sha256 = "92b9af48e8b928455bc8b94bf3da05751faec0932a11eee237c189c6d439e5c8" %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +15,7 @@ source:
     - 0001-Comment-out-fix-for-663.patch
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
