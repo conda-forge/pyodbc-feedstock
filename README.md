@@ -333,4 +333,5 @@ Feedstock Maintainers
 =====================
 
 * [@nehaljwani](https://github.com/nehaljwani/)
+* [@xhochy](https://github.com/xhochy/)
 
