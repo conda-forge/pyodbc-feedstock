@@ -1,18 +1,16 @@
 {% set name = "pyodbc" %}
 {% set version = "5.0.0" %}
-{% set sha256 = "e68a0ba256e614c0372d16e854cbcdd9e62466831fa6214f533a557551ddc75c" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: e68a0ba256e614c0372d16e854cbcdd9e62466831fa6214f533a557551ddc75c
   patches:
-    - setup.patch  # [unix]
-    - 0001-Comment-out-fix-for-663.patch
+    # - setup.patch  # [unix]
+    #- 0001-Comment-out-fix-for-663.patch
 
 build:
   number: 0
