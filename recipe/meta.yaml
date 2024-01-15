@@ -1,5 +1,5 @@
 {% set name = "pyodbc" %}
-{% set version = "4.0.39" %}
+{% set version = "5.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,21 +7,20 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e528bb70dd6d6299ee429868925df0866e3e919c772b9eff79c8e17920d8f116
-  patches:
+  sha256: 03d7d0b04d5a9156099ce8d03e92f3956783746fa9234eb6f5b5cfc12b645011
+  patches:         # [unix]
     - setup.patch  # [unix]
-    - 0001-Comment-out-fix-for-663.patch
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  skip: true # [py<38]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - patch     # [not win]
-    - m2-patch  # [win]
+    - patch     # [unix]
   host:
     - python
     - pip
