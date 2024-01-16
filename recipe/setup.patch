@@ -1,17 +1,26 @@
+From 48cc0657434a660cc726f4e96f6da39957089d8a Mon Sep 17 00:00:00 2001
+From: "Uwe L. Korn" <uwe.korn@quantco.com>
+Date: Tue, 10 Oct 2023 20:50:42 +0200
+Subject: [PATCH] Add sys.prefix/include to include_dirs
+
+---
+ setup.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
 diff --git a/setup.py b/setup.py
-index 260ce7d..940ca1c 100755
+index 097d537..fa1180c 100755
 --- a/setup.py
 +++ b/setup.py
-@@ -135,7 +135,7 @@ def get_compiler_settings(version_str):
-         'extra_compile_args' : [],
+@@ -79,7 +79,7 @@ def get_compiler_settings():
+         'extra_compile_args': [],
          'extra_link_args': [],
          'libraries': [],
 -        'include_dirs': [],
 +        'include_dirs': [join(sys.prefix, 'include')],
-         'define_macros' : [ ('PYODBC_VERSION', version_str) ]
+         'define_macros': [('PYODBC_VERSION', VERSION)]
      }
  
-@@ -197,7 +197,7 @@ def get_compiler_settings(version_str):
+@@ -132,7 +132,7 @@ def get_compiler_settings():
  
          # Homebrew installs odbc_config
          pipe = os.popen('odbc_config --cflags --libs 2>/dev/null')
@@ -20,3 +29,6 @@ index 260ce7d..940ca1c 100755
          exit_status = pipe.close()
  
          if exit_status is None:
+-- 
+2.39.3 (Apple Git-145)
+
