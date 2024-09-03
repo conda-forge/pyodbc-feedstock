@@ -22,10 +22,10 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-
   host:
     - python
     - pip
+    - setuptools
     - unixodbc   # [unix]
   run:
     - python
