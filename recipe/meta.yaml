@@ -34,6 +34,7 @@ test:
     - pip
   commands:
     - pip check
+    - python -c "import pyodbc; print('\n'.join(sorted(pyodbc.drivers())))"
 
 about:
   home: https://github.com/mkleehammer/pyodbc
