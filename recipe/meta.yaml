@@ -10,9 +10,10 @@ source:
   sha256: 397feee44561a6580be08cedbe986436859563f4bb378f48224655c8e987ea60
   patches:
     - 0001-Add-sys.prefix-include-to-include_dirs.patch  # [unix]
+    - c913dc80009c9d64f995f6d5b6e27db4761e6883.patch
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -20,11 +21,12 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-
   host:
     - python
     - pip
+    - setuptools
     - unixodbc   # [unix]
   run:
     - python
