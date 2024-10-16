@@ -1,5 +1,5 @@
 {% set name = "pyodbc" %}
-{% set version = "5.1.0" %}
+{% set version = "5.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 397feee44561a6580be08cedbe986436859563f4bb378f48224655c8e987ea60
+  sha256: de8be39809c8ddeeee26a4b876a6463529cd487a60d1393eb2a93e9bcd44a8f5
   patches:
     - 0001-Add-sys.prefix-include-to-include_dirs.patch  # [unix]
-    - c913dc80009c9d64f995f6d5b6e27db4761e6883.patch
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
