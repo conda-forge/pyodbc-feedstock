@@ -10,7 +10,6 @@ source:
   sha256: de8be39809c8ddeeee26a4b876a6463529cd487a60d1393eb2a93e9bcd44a8f5
   patches:
     - 0001-Add-sys.prefix-include-to-include_dirs.patch  # [unix]
-    - c913dc80009c9d64f995f6d5b6e27db4761e6883.patch
 
 build:
   number: 0
