@@ -16,15 +16,15 @@ source:
       then: 0001-Add-sys.prefix-include-to-include_dirs.patch
 
 build:
-  number: 2
+  number: 3
   script: ${{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
+      then:
+        - python
+        - cross-python_${{ target_platform }}
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
