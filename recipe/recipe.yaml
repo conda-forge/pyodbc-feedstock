@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: pyodbc
-  version: "5.3.0"
+  version: "5.4.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,13 +10,13 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 2fe0e063d8fb66efd0ac6dc39236c4de1a45f17c33eaded0d553d21c199f4d05
+  sha256: 0f831870ebd0978d9199999d773421938c6fc199d9049c167a0fcef504f09bbd
   patches:
     - if: unix
       then: 0001-Add-sys.prefix-include-to-include_dirs.patch
 
 build:
-  number: 3
+  number: 0
   script: ${{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
